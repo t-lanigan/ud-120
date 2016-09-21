@@ -60,9 +60,7 @@ from sklearn.svm import SVC
 clf = SVC(kernel="rbf", C=10000)
 clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
-print pred[10]
-print pred[26]
-print pred[50]
+
 
 #prettyPicture(clf,features_test,labels_test)
 
