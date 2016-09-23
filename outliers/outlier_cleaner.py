@@ -15,7 +15,6 @@ def outlierCleaner(predictions, ages, net_worths):
     cleaned_data = []
 
 
-
     for i in range(len(ages)):
         error = abs(predictions[i][0] - net_worths[i][0]) 
         cleaned_data.append((ages[i][0],net_worths[i][0],error))
@@ -26,12 +25,6 @@ def outlierCleaner(predictions, ages, net_worths):
     #removes the top removal_percentage
     for i in range(int(len(cleaned_data)*removal_percentage)):
         cleaned_data.pop()
-
-
-    for i in range(len(cleaned_data)):
-        print cleaned_data[i]
-
-
 
     return cleaned_data
 
