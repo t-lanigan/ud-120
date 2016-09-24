@@ -42,6 +42,16 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r")
 ### there's an outlier--remove it! 
 data_dict.pop("TOTAL", 0)
 
+stocks = [] 
+for key, value in data_dict.iteritems():
+        
+    if value['exercised_stock_options'] != 'NaN':
+ 
+        stocks.append(value['exercised_stock_options']) 
+ 
+ 
+print min(stocks), max(stocks)
+
 
 ### the input features we want to use 
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
@@ -57,19 +67,18 @@ poi, finance_features = targetFeatureSplit( data )
 ## you'll want to change this line to 
 ## for f1, f2, _ in finance_features:
 ## (as it's currently written, the line below assumes 2 features)
-for f1, f2 in finance_features:
-    plt.scatter( f1, f2)
-plt.show()
+# for f1, f2, in finance_features:
+#     plt.scatter(f1, f2)
+# plt.show()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
 k_means = KMeans(n_clusters=2)
-k_means.fit(finance_features)
 pred = k_means.fit_predict(finance_features)
 
 ### rename the "name" parameter when you change the number of features
-### so that the figure gets saved to a different file
-try:
-    Draw(pred, finance_features, poi, mark_poi=False, name="clusters1.pdf", f1_name=feature_1, f2_name=feature_2)
-except NameError:
-    print "no predictions object named pred found, no clusters to plot"
+# ### so that the figure gets saved to a different file
+# try:
+#     Draw(pred, finance_features, poi, mark_poi=False, name="clusters1.pdf", f1_name=feature_1, f2_name=feature_2)
+# except NameError:
+#     print "no predictions object named pred found, no clusters to plot"

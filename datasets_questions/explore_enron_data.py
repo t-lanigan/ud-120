@@ -22,16 +22,16 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r")
 #print len(enron_data)
 #print enron_data.keys()
 #print enron_data.itervalues().next()['poi']
-count = 0.0
+maximum = 10000000000
 for key, value in enron_data.iteritems():
-	if enron_data[key]['poi'] == 1:
-	 	count = count + 1.0
+	if enron_data[key]['exercised_stock_options'] < maximum and enron_data[key]['exercised_stock_options'] != 'NaN':
+	 	maximum = enron_data[key]['exercised_stock_options']
 
-print count
+print maximum
 
-total_no = float(len(enron_data))
-print total_no
-print count/total_no
+# total_no = float(len(enron_data))
+# print total_no
+# print count/total_no
 
 # no_of_features = len(enron_data[enron_data.keys()[0]])
 # print no_of_features
