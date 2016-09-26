@@ -29,7 +29,7 @@ from_chris = open("from_chris.txt", "r")
 
 from_data = []
 word_data = []
-sw = ["sara", "shackleton", "chris", "germani"]
+sw = ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]
 ### temp_counter is a way to speed up the development--there are
 ### thousands of emails from Sara and Chris, so running over all of them
 ### can take a long time
@@ -69,12 +69,13 @@ from_chris.close()
 pickle.dump( word_data, open("your_word_data.pkl", "w") )
 pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 
-vec = TfidfVectorizer(stop_words="english")
-vec.fit_transform(word_data)
+#Fit a Tfidf matrix to the data.
+# vec = TfidfVectorizer(stop_words="english")
+# vec.fit_transform(word_data)
 
-vocab_list = vec.get_feature_names()
-print len(vocab_list)
+# vocab_list = vec.get_feature_names()
+# print len(vocab_list)
 
-print vocab_list[34597]
+# print vocab_list[34597]
 
 
