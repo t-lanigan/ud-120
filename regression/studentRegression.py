@@ -6,7 +6,6 @@ def studentReg(ages_train, net_worths_train):
     reg = LinearRegression()
     reg.fit(ages_train,net_worths_train)   
     ### your code goes here!
-    reg.fit(ages_train,net_worths_train)
     
     
     return reg
